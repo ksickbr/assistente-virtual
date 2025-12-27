@@ -1,0 +1,43 @@
+{
+  "saudacao": {
+    "exemplos": [
+    "Oi",
+    "Olá",
+    "Bom dia"],
+
+    "respostas": [
+    "Olá! Como posso ajudar?",
+    "Oi! Em que posso te ajudar hoje?",
+    "Bom dia! O que você gostaria de saber?"
+    ]},
+  
+  "agendamento": {
+    "exemplos": [
+    "Quero fazer um agendamento",
+    "Gostaria de marcar um horário"],
+    "respostas": [
+    "Qual dia você gostaria de agendar?",
+    "Pode me informar a data desejada?"
+    ]},
+
+  "despedida": {
+    "exemplos": [
+    "Tchau",
+    "Até mais",
+    "Adeus"],
+    "respostas": [
+    "Até logo!",
+    "Tchau! Volte sempre."
+    ]},
+    
+  "ajuda": {
+    "exemplos": [
+    "Preciso de ajuda",
+    "O que voce pode fazer por mim?",
+    "Quero ajuda"],
+    "respostas": [
+    "Posso te ajudar com informações sobre agendamentos.",
+    "Estou aqui para ajudar! Você pode me perguntar sobre agendamentos."
+    ]
+  }
+}
