@@ -30,14 +30,14 @@ def responder_mensagem(texto_usuario):
     intents = carregar_intents("intents.json")
     texto_usuario = texto_normalizado(texto_usuario)
 
-#  Percorre as intents para encontrar uma correspondência
+    # Coleta as intenções e suas respectivas respostas
     for intent, dados in intents.items():
         exemplos = dados.get("exemplos", [])
         respostas = dados.get("respostas", [])
-# Verifica se o texto do usuário corresponde a algum exemplo e retorna uma resposta aleatória entre as disponíveis
+
+        # Verifica se o texto do usuário corresponde a algum exemplo e retorna uma resposta aleatória entre as disponíveis
         for exemplo in exemplos:
             exemplo_normalizado = texto_normalizado(exemplo)
-
             if exemplo_normalizado == texto_usuario:
                 return choice(respostas)
             elif texto_usuario in exemplo_normalizado:
