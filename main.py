@@ -1,17 +1,21 @@
-from fastapi import FastAPI
-from pydantic import BaseModel
-from chatbot import responder_mensagem
+from fastapi import FastAPI, Request
+from chatbot import responder_por_intent
 
 app = FastAPI()
 
-class Mensagem(BaseModel):
-    texto: str
+@app.post("/webhook/dialogflow")
+async def dialogflow_webhook(request: Request):
+    """
+    Endpoint que recebe requisições do Dialogflow e responde com base nas intents detectadas.)
+    """
+    body = await request.json()
 
-@app.get("/")
-def home():
-    return {"status": "API rodando com FastAPI!"}
+    intent_nome = body["queryResult"]["intent"]["displayName"]
+    
+    #Obtém resposta baseada na intent
+    resposta = responder_por_intent(intent_nome)
 
-@app.post("/chat")
-def chat(mensagem: Mensagem):
-    resposta = responder_mensagem(mensagem.texto)
-    return {"resposta": resposta}
+    #Retorna resposta no formato esperado pelo Dialogflow
+    return {
+        "fulfillmentText": resposta
+    }
